@@ -1,0 +1,41 @@
+// Input: Get user information
+studentName = Input("Enter your name")
+idNumber = Input("Enter your MC ID number with the M")
+selfDescription = Input("Enter self-description")
+dueDate = Input("Enter due date in the format mm/dd/yyyy")
+
+// Initialize variables
+colors = ["Red", "Orange", "Yellow", "Green", "Blue", "Purple", "Pink"]
+rounds = 0
+wins = 0
+
+// Game loop for 11 rounds
+while rounds < 11:
+    computerColor = RandomlySelectColor(colors)
+    
+    Print("Round " + (rounds + 1))
+    Print("Pick a color:")
+    PrintColorOptions(colors)
+    
+    userChoice = Input("Enter your choice")
+    
+    // Check if user input is valid
+    while userChoice not in colors:
+        Print("Not a valid color. Try again.")
+        userChoice = Input("Enter your choice")
+    
+    if userChoice == computerColor:
+        Print("You got it! the color was " + computerColor)
+        wins = wins + 1
+    else:
+        Print("You got it wrong! the color was " + computerColor)
+    
+    rounds = rounds + 1
+
+// Print game results and user information
+Print("You guessed " + wins + " out of 11 correct")
+Print("Student name: " + studentName)
+Print("Student ID: " + idNumber)
+Print("Student description: " + selfDescription)
+Print("Student due date: " + dueDate)
+Print("Programmed by: Jesse Martinez")
